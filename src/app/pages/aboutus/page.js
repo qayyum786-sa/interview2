@@ -9,11 +9,14 @@ export default function AboutUs() {
     <div className="font-sans">
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center h-[60vh] flex flex-col justify-center items-center text-white"
-        style={{
-          backgroundImage: "url('/Teammeet.jpg')", // replace with your banner
-        }}
-      >
+        className="relative bg-cover bg-center h-[60vh] flex flex-col justify-center items-center text-white">
+         <Image
+                  src="/Aboutus.jpg"
+                  alt="Team Working"
+                  fill
+                  className="object-cover brightness-[60%]"
+                />
+      
         {/* <div className="absolute inset-0 bg-black bg-opacity-50"></div> */}
         <div className="relative z-10 text-center">
           <h1 className="text-4xl font-bold mb-2">About US</h1>
@@ -129,17 +132,18 @@ export default function AboutUs() {
     ].map((src, i) => (
       <div
         key={i}
-        className="bg-white border rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-6 flex justify-center items-center w-64 h-32"
+        className="bg-white border rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 p-6 flex justify-center items-center w-64 h-32"
       >
         <img
           src={src}
           alt={`Partner ${i + 1}`}
-          className="max-h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+          className="max-h-20 object-contain opacity-80 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
         />
       </div>
     ))}
   </div>
 </section>
+
 
 
 

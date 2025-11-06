@@ -53,15 +53,15 @@ export default function SolutionsPage() {
     <div className="w-full">
       {/* ===== HERO SECTION ===== */}
       <div
-        className="relative w-full h-25rem flex align-items-center justify-content-center"
+        className="relative w-full h-[25rem] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/Aboutus.jpg')",
+          backgroundImage: "url('/Teammeet.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute top-0 left-0 w-full h-full bg-black-alpha-60"></div>
-        <div className="text-center text-white relative z-2">
+        <div className="absolute top-0 left-0 w-full h-full bg-black/60"></div>
+        <div className="text-center text-white relative z-[2]">
           <h1 className="text-5xl font-bold mb-3">Solutions</h1>
           <p className="text-lg">See how our solutions grow your business.</p>
         </div>
@@ -85,9 +85,9 @@ export default function SolutionsPage() {
               {services.map((service, index) => (
                 <div key={index} className="col-12 md:col-6 lg:col-4 p-3">
                   <div
-                    className="relative border-round-lg shadow-3 overflow-hidden"
+                    className="relative rounded-lg shadow-lg overflow-hidden"
                     style={{
-                      height: "380px",
+                      height: "300px",
                       backgroundImage: `url(${service.image})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
@@ -95,19 +95,17 @@ export default function SolutionsPage() {
                   >
                     {/* Overlay */}
                     <div
-                      className="absolute top-0 left-0 w-full h-full p-4 flex flex-column justify-content-between"
+                      className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-between"
                       style={{
                         background: "rgba(0, 75, 173, 0.92)",
                         color: "white",
                       }}
                     >
                       <div>
-                        <h3 className="text-lg font-bold mb-3">
-                          {service.title}
-                        </h3>
-                        <p className="text-sm line-height-3">
-                          {service.description}
-                        </p>
+                        <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                        <p className="text-base leading-relaxed">{service.description}</p>
+
+
                       </div>
                       <Button
                         label="READ MORE"
@@ -127,28 +125,24 @@ export default function SolutionsPage() {
               {services.map((service, index) => (
                 <div key={index} className="col-12 md:col-6 lg:col-4 p-3">
                   <div
-                    className="relative border-round-lg shadow-3 overflow-hidden"
+                    className="relative rounded-lg shadow-lg overflow-hidden"
                     style={{
-                      height: "380px",
+                      height: "300px",
                       backgroundImage: `url(${service.image})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   >
                     <div
-                      className="absolute top-0 left-0 w-full h-full p-4 flex flex-column justify-content-between"
+                      className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-between"
                       style={{
                         background: "rgba(0, 75, 173, 0.92)",
                         color: "white",
                       }}
                     >
                       <div>
-                        <h3 className="text-lg font-bold mb-3">
-                          {service.title}
-                        </h3>
-                        <p className="text-sm line-height-3">
-                          {service.description}
-                        </p>
+                       <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                        <p className="text-base leading-relaxed">{service.description}</p>
                       </div>
                       <Button
                         label="READ MORE"

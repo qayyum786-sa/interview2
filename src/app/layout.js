@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -40,10 +39,10 @@ export default function RootLayout({ children }) {
       >
         {/* ✅ PROFESSIONAL NAVBAR */}
         <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-lg shadow-md transition-all duration-300 border-b border-gray-100">
-          <div className="max-w-[1400px] mx-auto flex items-center justify-between px-10 py-2.5 relative">
-
-            {/* Logo — slightly more left */}
-            <div className="flex-shrink-0 -ml-10">
+          {/* Responsive container: mobile padding -> sm -> md */}
+          <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 md:px-10 py-3 relative">
+            {/* Logo */}
+            <div className="flex items-center flex-shrink-0">
               <Link href="/" aria-label="Home">
                 <Image
                   src="/luminatelogo.png"
@@ -56,8 +55,8 @@ export default function RootLayout({ children }) {
               </Link>
             </div>
 
-            {/* Centered Navigation with bold text */}
-            <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-10 font-semibold text-gray-900 text-[19px]">
+            {/* Centered Navigation: visible from md and kept centered on wide screens */}
+            <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-6 lg:space-x-7 font-semibold text-gray-900 text-[16px] md:text-[18px]">
               {navLinks.map((item) => (
                 <Link
                   key={item.name}
@@ -72,11 +71,11 @@ export default function RootLayout({ children }) {
               ))}
             </nav>
 
-            {/* Free Consultation Button — pushed right */}
-            <div className="hidden md:flex justify-end flex-shrink-0 pr-0">
+            {/* Free Consultation Button — shown on md+, compact on mobile menu */}
+            <div className="hidden md:flex justify-end flex-shrink-0 ml-auto">
               <Link
-                href="/contect-us"
-                className="ml-8 bg-blue-700 text-white px-7 py-2.5 rounded-full font-semibold shadow-md hover:bg-blue-800 hover:shadow-lg transition-all duration-300"
+                href="/pages/freeconsultation"
+                className="bg-blue-700 text-white px-5 md:px-7 py-2.5 rounded-full font-semibold shadow-md hover:bg-blue-800 hover:shadow-lg transition-all duration-300"
               >
                 Free Consultation
               </Link>
@@ -84,42 +83,46 @@ export default function RootLayout({ children }) {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-3xl text-gray-800"
+              className="md:hidden ml-2 p-2 rounded-md text-2xl text-gray-800 hover:bg-gray-100 transition"
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle Menu"
+              aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+              aria-expanded={menuOpen}
             >
-              ☰
+              {/* simple hamburger / close */}
+              {menuOpen ? "✕" : "☰"}
             </button>
           </div>
 
-          {/* MOBILE MENU */}
+          {/* MOBILE MENU (slides down under header) */}
           {menuOpen && (
             <div className="md:hidden bg-white/95 backdrop-blur-lg shadow-lg border-t border-gray-200">
-              <nav className="flex flex-col items-center space-y-4 py-4 text-gray-800 font-semibold text-lg">
+              <nav className="flex flex-col items-stretch space-y-2 py-4 text-gray-800 font-semibold text-base px-4">
                 {navLinks.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block py-2 px-3 hover:bg-blue-100 rounded-md w-full text-center transition-all"
+                    className="block py-3 px-3 hover:bg-blue-50 rounded-md transition-all text-center"
                   >
                     {item.name}
                   </Link>
                 ))}
-                <Link
-                  href="/contect-us"
-                  onClick={() => setMenuOpen(false)}
-                  className="bg-blue-700 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-800 transition-all duration-300"
-                >
-                  Free Consultation
-                </Link>
+                <div className="pt-2">
+                  <Link
+                    href="/pages/freeconsultation"
+                    onClick={() => setMenuOpen(false)}
+                    className="inline-block w-full text-center bg-blue-700 text-white px-4 py-3 rounded-full font-semibold hover:bg-blue-800 transition-all duration-300"
+                  >
+                    Free Consultation
+                  </Link>
+                </div>
               </nav>
             </div>
           )}
         </header>
 
-        {/* Page Content */}
-        <main className="pt-24">{children}</main>
+        {/* Page Content (add top padding so content doesn't hide under fixed header) */}
+        <main className="pt-20 md:pt-24">{children}</main>
       </body>
     </html>
   );

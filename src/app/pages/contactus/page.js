@@ -1,273 +1,150 @@
-
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
 
-export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    company: "",
-    fullName: "",
-    email: "",
-    phone: "",
-    focus: "",
-    details: "",
-    features: "",
-    pages: "",
-    references: "",
-    objective: "",
-    budget: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
+export default function Contact() {
   return (
-    <div className="w-full">
-      {/* HERO SECTION */}
-      <section className="bg-gradient-to-b from-blue-100 to-white text-center py-20">
-        <h1 className="text-5xl font-bold text-blue-900 mb-3">
-          Get Free Consultation
-        </h1>
-        <p className="text-blue-800 text-lg">
-          We offer affordable best quality services
-        </p>
-      </section>
+    <main className="flex flex-col min-h-screen bg-gradient-to-b from-white to-blue-50">
+      {/* Contact Section */}
+      <section className="flex-1 flex flex-col items-center py-16 px-6">
+        {/* Heading */}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-gray-800">
+            Contact <span className="text-blue-600">US</span>
+          </h1>
+          <p className="text-gray-600 mt-2">
+            Get in touch with us for your web development and digital marketing needs
+          </p>
+        </div>
 
-      {/* FORM SECTION */}
-      <section className="flex justify-center px-4 py-10">
-        <div className="bg-blue-100 rounded-lg shadow-lg border border-gray-300 w-full max-w-3xl p-8 md:p-10">
-          <form className="space-y-6">
-            {/* Project Name */}
-            <div>
-              <label className="block font-semibold text-gray-800 mb-2">
-                Project/Company Name
-              </label>
+        {/* Content Section */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-12 w-full max-w-6xl">
+          {/* Left Side - Illustration */}
+          <div className="flex-1 flex justify-center">
+            <Image
+              src="/contactinfo.png"
+              alt="Contact illustration"
+              width={400}
+              height={400}
+              className="object-contain"
+            />
+          </div>
+
+          {/* Right Side - Contact Info & Form */}
+          <div className="flex-1 bg-white rounded-2xl shadow-md p-8 border border-gray-100">
+            <div className="flex justify-center">
+              <h2 className="text-2xl font-semibold text-blue-700 mb-4 text-center">
+                Let's Connect
+              </h2>
+            </div>
+
+            <div className="text-gray-700 space-y-1 mb-6">
+              <p>📍 Hyderabad, Telangana, India</p>
+              <p>📞 +91 720-736-7455</p>
+              <p>✉️ info@luminatewebsol.com</p>
+              <p className="font-semibold text-blue-600 mt-3">Business Hours</p>
+              <p>Monday - Saturday: 9:00 AM – 6:00 PM</p>
+              <p>Sunday: Closed</p>
+            </div>
+
+            {/* Contact Form */}
+            <form className="space-y-4">
               <input
                 type="text"
-                name="company"
-                onChange={handleChange}
-                className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
+                placeholder="Joe Doe"
+                className="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
               />
-            </div>
-
-            {/* Full Name */}
-            <div>
-              <label className="block font-semibold text-gray-800 mb-2">
-                Full Name
-              </label>
+              <input
+                type="email"
+                placeholder="example@gmail.com"
+                className="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+              />
+              <input
+                type="tel"
+                placeholder="+91 0000 0000"
+                className="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+              />
               <input
                 type="text"
-                name="fullName"
-                onChange={handleChange}
-                className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
+                placeholder="Subject"
+                className="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
               />
-            </div>
-
-            {/* Email and Contact Number */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block font-semibold text-gray-800 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
-                />
-              </div>
-              <div>
-                <label className="block font-semibold text-gray-800 mb-2">
-                  Contact Number
-                </label>
-                <input
-                  type="text"
-                  name="phone"
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
-                />
-              </div>
-            </div>
-
-            {/* Focus */}
-            <div>
-              <label className="block font-semibold text-gray-800 mb-2">
-                What will be the focus of the website?
-              </label>
-              <input
-                type="text"
-                name="focus"
-                placeholder="Business, News, E-Commerce, etc….."
-                onChange={handleChange}
-                className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
-              />
-            </div>
-
-            {/* Website Details */}
-            <div>
-              <label className="block font-semibold text-gray-800 mb-2">
-                Website Details
-              </label>
               <textarea
-                name="details"
                 rows="4"
-                placeholder="Provide us with requirements for your website using the details……."
-                onChange={handleChange}
-                className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
+                placeholder="Message"
+                className="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none resize-none"
               ></textarea>
-            </div>
-
-            {/* Additional Features */}
-            <div>
-              <label className="block font-semibold text-gray-800 mb-2">
-                Additional Features
-              </label>
-              <input
-                type="text"
-                name="features"
-                placeholder="SEO, SEM, Facebook Marketing etc…."
-                onChange={handleChange}
-                className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
-              />
-            </div>
-
-            {/* Pages & References */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block font-semibold text-gray-800 mb-2">
-                  Number of Pages
-                </label>
-                <select
-                  name="pages"
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
-                >
-                  <option value="">Select</option>
-                  <option value="1-10">1-10</option>
-                  <option value="10-20">10-20</option>
-                  <option value="20+">20+</option>
-                </select>
-              </div>
-              <div>
-                <label className="block font-semibold text-gray-800 mb-2">
-                  References
-                </label>
-                <input
-                  type="text"
-                  name="references"
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
-                />
-              </div>
-            </div>
-
-            {/* Objective */}
-            <div>
-              <label className="block font-semibold text-gray-800 mb-2">
-                Objective
-              </label>
-              <input
-                type="text"
-                name="objective"
-                onChange={handleChange}
-                className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
-              />
-            </div>
-
-            {/* Budget */}
-            <div>
-              <label className="block font-semibold text-gray-800 mb-2">
-                What is the budget for your website?
-              </label>
-              <input
-                type="text"
-                name="budget"
-                onChange={handleChange}
-                className="w-full p-3 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="flex justify-center pt-4">
               <button
                 type="submit"
-                className="bg-blue-700 text-white px-8 py-2 rounded-full font-semibold shadow-md hover:bg-blue-800 transition-all"
+                className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors"
               >
-                Submit
+                Send Message
               </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-blue-700 text-white py-10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
-          {/* Logo */}
-          <div className="flex flex-col items-center md:items-start space-y-3">
+      <footer className="bg-[#0056d2] text-white px-10 py-10">
+        <div className="w-full flex flex-col md:flex-row md:justify-between md:items-start gap-10 md:gap-20">
+          {/* Left Section */}
+          <div className="flex flex-col items-start justify-start w-full md:w-1/3">
             <Image
               src="/luminatewhitelogo.png"
               alt="Luminate Web Solutions"
-              width={180}
-              height={60}
-              className="object-contain"
+              width={200}
+              height={70}
+              className="mb-3"
             />
-            <p className="text-sm mt-2">© 2024-25 All rights reserved.</p>
+            <p className="text-sm leading-6">
+              © 2024-25 <span className="font-semibold">Luminate Web Solutions</span>.
+              <br />
+              All rights reserved.
+            </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-lg mb-3">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/" className="hover:underline">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/pages/aboutus" className="hover:underline">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/contect-us" className="hover:underline">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/pages/solution" className="hover:underline">
-                  Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/pages/career" className="hover:underline">
-                  Career
-                </Link>
-              </li>
+          <div className="flex flex-col w-full md:w-1/3 text-left">
+            <h4 className="font-bold text-lg mb-3">Quick Links</h4>
+            <ul className="list-none space-y-2 text-base">
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">Home</li>
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">About Us</li>
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">Contact Us</li>
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">Solutions</li>
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">Career</li>
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="font-bold text-lg mb-3">Contact Info</h3>
-            <p>Dubai, UAE</p>
-            <p>Hyderabad, Telangana, India</p>
-            <p className="mt-3 text-sm">
-              📞 +971 56 574 4992 <br /> 📞 +91 720-736-7455
+          <div className="flex flex-col w-full md:w-1/3 text-left">
+            <h4 className="font-bold text-lg mb-3">Contact Info</h4>
+            <p className="leading-7">
+              Dubai, UAE
+              <br />
+              Hyderabad, Telangana, India
             </p>
-            <p className="mt-2 text-sm">
-              ✉️ info@luminatewebsol.com
-            </p>
+            <div className="mt-3 space-y-2 text-base">
+              <p className="flex items-center gap-2">
+                <span>📞</span> +971 56 674 9492
+              </p>
+              <p className="flex items-center gap-2">
+                <span>📞</span> +91 720 734 7455
+              </p>
+              <p className="flex items-center gap-2">
+                <span>✉️</span> info@luminatewebsdl.com
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="text-center text-xs mt-8 border-t border-blue-600 pt-4">
-          Privacy Policy | Terms & Conditions | Disclaimer | Refund Policy | Cancellation Policy
+        <hr className="my-6 border-white/30" />
+        <div className="text-center text-sm opacity-80 space-x-3">
+          <span>Privacy Policy</span>|
+          <span>Terms & Conditions</span>|
+          <span>Disclaimer</span>|
+          <span>Refund Policy</span>|
+          <span>Cancellation Policy</span>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
