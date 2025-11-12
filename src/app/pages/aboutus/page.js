@@ -3,20 +3,21 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
+import { FaBullseye, FaRocket, FaGem } from "react-icons/fa";
 
 export default function AboutUs() {
   return (
-    <div className="font-sans">
+    <div>
       {/* Hero Section */}
       <section
         className="relative bg-cover bg-center h-[60vh] flex flex-col justify-center items-center text-white">
-         <Image
-                  src="/Aboutus.jpg"
-                  alt="Team Working"
-                  fill
-                  className="object-cover brightness-[60%]"
-                />
-      
+        <Image
+          src="/Aboutus.jpg"
+          alt="Team Working"
+          fill
+          className="object-cover brightness-[60%]"
+        />
+
         {/* <div className="absolute inset-0 bg-black bg-opacity-50"></div> */}
         <div className="relative z-10 text-center">
           <h1 className="text-4xl font-bold mb-2">About US</h1>
@@ -27,7 +28,7 @@ export default function AboutUs() {
       {/* Our Story Section */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="mb-6">
-          <span className="text-sm font-semibold text-white bg-blue-700 px-4 py-1 rounded">
+          <span className="text-2xl font-semibold text-white bg-blue-700 px-4 py-1 rounded">
             OUR STORY
           </span>
         </div>
@@ -55,8 +56,14 @@ export default function AboutUs() {
         </div>
 
         {/* Mission / Vision / Values */}
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          <div className="bg-blue-700 text-white p-6 rounded-xl shadow-md">
+          {/* MISSION */}
+          <div className="bg-blue-700 text-white p-6 rounded-xl shadow-md text-center 
+                  transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:brightness-110">
+            <div className="bg-white inline-flex items-center justify-center w-14 h-14 rounded-lg mb-4">
+              <FaBullseye className="text-blue-700 text-3xl" />
+            </div>
             <h3 className="text-xl font-bold mb-2">MISSION</h3>
             <p>
               We aim to empower businesses through transformative digital
@@ -64,7 +71,12 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className="bg-blue-700 text-white p-6 rounded-xl shadow-md">
+          {/* VISION */}
+          <div className="bg-blue-700 text-white p-6 rounded-xl shadow-md text-center 
+                  transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:brightness-110">
+            <div className="bg-white inline-flex items-center justify-center w-14 h-14 rounded-lg mb-4">
+              <FaRocket className="text-blue-700 text-3xl" />
+            </div>
             <h3 className="text-xl font-bold mb-2">VISION</h3>
             <p>
               Our goal is to be the preferred digital transformation partner for
@@ -72,7 +84,12 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className="bg-blue-700 text-white p-6 rounded-xl shadow-md">
+          {/* VALUES */}
+          <div className="bg-blue-700 text-white p-6 rounded-xl shadow-md text-center 
+                  transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:brightness-110 h-86">
+            <div className="bg-white inline-flex items-center justify-center w-14 h-14 rounded-lg mb-4">
+              <FaGem className="text-blue-700 text-3xl" />
+            </div>
             <h3 className="text-xl font-bold mb-2">VALUES</h3>
             <p>
               We strive to drive digital innovation that not only meets but
@@ -86,7 +103,7 @@ export default function AboutUs() {
       <section className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-6">
-            <span className="text-sm font-semibold text-white bg-blue-700 px-4 py-1 rounded">
+            <span className="text-2xl font-semibold text-white bg-blue-700 px-4 py-1 rounded">
               OUR SERVICES
             </span>
           </div>
@@ -113,36 +130,37 @@ export default function AboutUs() {
         </div>
       </section>
 
-      
-{/* Our Partners Section */}
-<section className="py-20 max-w-7xl mx-auto px-6">
-  <h2 className="text-4xl font-bold text-center mb-3">OUR PARTNERS</h2>
-  <p className="text-center text-gray-600 mb-14 text-lg">
-    Collaborating with trusted brands that share our vision for innovation and growth.
-  </p>
 
-  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 justify-center items-center place-items-center">
-    {[
-      "/sdhubmh.png",
-      "/sdhubqs.png",
-      "/eiddo.png",
-      "/psf.png",
-      "/zenoids.png",
-      "/standard.png",
-    ].map((src, i) => (
-      <div
-        key={i}
-        className="bg-white border rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 p-6 flex justify-center items-center w-64 h-32"
-      >
-        <img
-          src={src}
-          alt={`Partner ${i + 1}`}
-          className="max-h-20 object-contain opacity-80 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
-        />
-      </div>
-    ))}
-  </div>
-</section>
+      {/* Our Partners Section */}
+      <section className="py-20 max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-left mb-3">OUR PARTNERS</h2>
+        <p className="text-left text-blue-600 mb-14 text-lg font-semibold ">
+          Collaborating with trusted brands that share our vision for innovation and growth.
+        </p>
+
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 justify-center items-center place-items-center">
+          {[
+            "/sdhubmh.png",
+            "/sdhubqs.png",
+            "/eiddo.png",
+            "/psf.png",
+            "/zenoids.png",
+            "/standard.png",
+          ].map((src, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-2xl shadow-[0_4px_10px_rgba(0,0,0,0.08),2px_0_6px_rgba(0,0,0,0.05),-2px_0_6px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] hover:scale-105 transition-all duration-300 p-6 flex justify-center items-center w-64 h-32"
+            >
+
+              <img
+                src={src}
+                alt={`Partner ${i + 1}`}
+                className="max-h-20 object-contain opacity-80 hover:opacity-100 transition-all duration-300 transform hover:scale-110"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
 
 
 
@@ -157,8 +175,8 @@ export default function AboutUs() {
 
       {/* Testimonials Section */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center mb-2">TESTIMONIALS</h2>
-        <p className="text-center text-gray-600 mb-10">
+        <h2 className="text-3xl font-bold text-left mb-2 text-2xl">TESTIMONIALS</h2>
+        <p className="text-left text-blue-600 mb-10 text-lg font-semibold  ">
           See how we’ve delivered best results to our clients
         </p>
 
@@ -185,11 +203,11 @@ export default function AboutUs() {
           ))}
         </div>
       </section>
-    
-  
+
+
 
       {/* ===== FOOTER ===== */}
-      <footer className="bg-blue-900 text-white px-10 py-8 mt-10">
+      <footer className="bg-[#0056d2] text-white px-10 py-8 mt-10">
         <div className="w-full flex flex-col md:flex-row md:justify-between md:items-start gap-10 md:gap-20">
           {/* Left Section */}
           <div className="flex flex-col items-start justify-start w-full md:w-1/3">

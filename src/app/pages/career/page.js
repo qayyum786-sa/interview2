@@ -110,7 +110,7 @@ export default function CareerPage() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer className="bg-blue-900 text-white px-10 py-8 mt-10">
+      <footer className="bg-[#0056d2] text-white px-10 py-8 mt-10">
         <div className="w-full flex flex-col md:flex-row md:justify-between md:items-start gap-10 md:gap-20">
           {/* Left Section */}
           <div className="flex flex-col items-start justify-start w-full md:w-1/3">

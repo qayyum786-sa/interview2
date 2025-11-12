@@ -1,18 +1,18 @@
 "use client";
-import React from "react";
+import { FaUserCircle } from "react-icons/fa";
+import React, { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const DMSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
-const DMSerif = DM_Serif_Display({ subsets: ["latin"], weight: "400" });
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-montserrat" });
 
 export default function Home() {
-  const sectionHeadingClass = `${DMSerif.className} text-[#0A0A0A] font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight`;
-  const sectionSubheadingClass = `${DMSans.className} text-[#045AD8] text-lg sm:text-xl md:text-2xl mt-2 mb-6`;
+  const sectionHeadingClass = `${montserrat.className} text-[#0A0A0A] font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight`;
+  const sectionSubheadingClass = `${montserrat.className} text-[#045AD8] text-lg sm:text-xl md:text-2xl mt-2 mb-6`;
   const sectionMarginClass = "mx-4 sm:mx-8 md:mx-24 lg:mx-36 my-12";
 
   const SERVICE_TABS = [
@@ -105,14 +105,160 @@ export default function Home() {
     }
   }
 
+  // paste these right above the <section> in the same file
+
+  // Beige / thick larger arrows like screenshot
+
+  const PrevArrow = ({ style, onClick }) => {
+    return (
+      <button
+        aria-label="Previous slide"
+        onClick={onClick}
+        type="button"
+        style={{ ...style }}
+        className="absolute left-6 top-1/2 z-30 -translate-y-1/2 flex items-center justify-center focus:outline-none"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="68"
+          height="68"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M15 4L7 12l8 8"
+            stroke="#F0E6C8"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+    );
+  };
+
+  const NextArrow = ({ style, onClick }) => {
+    return (
+      <button
+        aria-label="Next slide"
+        onClick={onClick}
+        type="button"
+        style={{ ...style }}
+        className="absolute right-6 top-1/2 z-30 -translate-y-1/2 flex items-center justify-center focus:outline-none"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="68"
+          height="68"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M9 4l8 8-8 8"
+            stroke="#F0E6C8"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+    );
+  };
+
+  // Put this at top of your component (inside the same file but before return)
+  const [activeCategory, setActiveCategory] = useState("development");
+
+  /* Development cards (exact content we used before) */
+  const developmentServices = [
+    {
+      title: "Social Media Branding",
+      desc:
+        "Social media branding builds a unique vibe with bold visuals and a consistent voice. Engage with your audience.It helps create stronger recognition, fosters trust, and keeps your audience engaged across platforms.",
+      icon: (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" aria-hidden>
+          <rect x="3.5" y="3.5" width="17" height="17" rx="2" stroke="#045AD8" strokeWidth="1.6" />
+          <path d="M8 10h8M8 14h4" stroke="#045AD8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      title: "Search Engine Optimization",
+      desc:
+        "Helping you build smart, scalable strategies aligned with your vision and market needs.",
+      icon: (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" aria-hidden>
+          <rect x="3.5" y="3.5" width="17" height="17" rx="2" stroke="#045AD8" strokeWidth="1.6" />
+          <circle cx="10.5" cy="10.5" r="3.2" stroke="#045AD8" strokeWidth="1.6" />
+          <path d="M17 17l-3.5-3.5" stroke="#045AD8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      title: "WhatsApp Marketing",
+      desc:
+        "A fast direct way to connect with customers through messages, updates, offers, and support right on their phones.",
+      icon: (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" aria-hidden>
+          <rect x="3.5" y="3.5" width="17" height="17" rx="2" stroke="#045AD8" strokeWidth="1.6" />
+          <path d="M9 9h6M9 13h6M9 17h6" stroke="#045AD8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+  ];
+
+  /* Digital Marketing cards — I created matching-style cards.
+     Replace titles/descriptions/icons with your real marketing items if you want. */
+  const marketingServices = [
+    {
+      title: "Social Media Ads",
+      desc:
+        "Targeted social ads that increase awareness and drive conversions across platforms.",
+      icon: (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" aria-hidden>
+          <rect x="3.5" y="3.5" width="17" height="17" rx="2" stroke="#045AD8" strokeWidth="1.6" />
+          <path d="M7 13h10M7 9h6" stroke="#045AD8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      title: "SEO & Content",
+      desc:
+        "Content + SEO to improve organic rankings and bring qualified traffic to your site.",
+      icon: (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" aria-hidden>
+          <rect x="3.5" y="3.5" width="17" height="17" rx="2" stroke="#045AD8" strokeWidth="1.6" />
+          <path d="M8 12h8M8 16h5" stroke="#045AD8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      title: "WhatsApp Campaigns",
+      desc:
+        "Personalized WhatsApp campaigns for retention — updates, offers and support delivered instantly.",
+      icon: (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" aria-hidden>
+          <rect x="3.5" y="3.5" width="17" height="17" rx="2" stroke="#045AD8" strokeWidth="1.6" />
+          <path d="M9 9h6M9 13h6" stroke="#045AD8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+  ];
+
+
+
+
   return (
-    <main className={`bg-white text-gray-900 ${DMSans.className}`}>
+    <main className={`bg-white text-gray-900 ${montserrat.className}`}>
 
       {/* SLIDER HERO SECTION */}
       <section className="relative w-full overflow-hidden">
         <Slider
           dots={true}
           arrows={true}
+          prevArrow={<PrevArrow />}
+          nextArrow={<NextArrow />}
           infinite={true}
           autoplay={true}
           autoplaySpeed={3000}
@@ -141,7 +287,7 @@ export default function Home() {
             {/* Centered Content */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${DMSerif.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
               >
                 Elevating Brands Through Professional Web Development
               </h1>
@@ -173,7 +319,7 @@ export default function Home() {
 
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${DMSerif.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
               >
                 Custom Web Apps That Scale With Your Business
               </h1>
@@ -205,7 +351,7 @@ export default function Home() {
 
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${DMSerif.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
               >
                 Design-Led Development for Outstanding UX
               </h1>
@@ -234,12 +380,12 @@ export default function Home() {
           Discover how our web solutions can elevate your digital presence.
         </h2>
         <div className="flex gap-3 md:gap-4 flex-wrap justify-center md:justify-start">
-          <Link href="/contactus">
+          <Link href="/pages/contactus">
             <button className="bg-white text-[#045AD8] px-4 py-2 rounded font-semibold hover:bg-gray-100 transition text-sm md:text-base">
               Get Started
             </button>
           </Link>
-          <Link href="/consultation">
+          <Link href="/pages/freeconsultation">
             <button className="bg-transparent border border-white px-4 py-2 rounded font-semibold hover:bg-white hover:text-[#045AD8] transition text-sm md:text-base">
               Inquiry
             </button>
@@ -248,37 +394,88 @@ export default function Home() {
       </section>
 
       {/* SERVICES SECTION */}
-      <section className={sectionMarginClass}>
-        <h1 className={sectionHeadingClass}>SERVICES</h1>
-        <p className={sectionSubheadingClass}>See how our solutions grow your business.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
-          {[
-            {
-              title: "Web Development",
-              description: "Custom websites and web applications built with modern technologies",
-            },
-            {
-              title: "UI/UX Design",
-              description: "User-centered design solutions that enhance user experience",
-            },
-            {
-              title: "Digital Strategy",
-              description: "Comprehensive digital solutions to grow your online presence",
-            },
-          ].map((service, i) => (
-            <div
-              key={i}
-              className="bg-[#045AD8] rounded-2xl p-6 sm:p-8 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+
+      <section className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+        {/* Heading + Subheading */}
+        <div className="mb-8">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#1f2937] leading-tight">
+            SERVICES
+          </h2>
+          <p className="mt-3 text-3xl text-[#0048b8] font-serif font-semibold">
+            See how our solutions grow your business.
+          </p>
+        </div>
+
+        {/* stateful pill buttons */}
+        {/* NOTE: uses useState below to toggle */}
+        <div className="mb-8">
+          <div className="inline-flex items-center bg-[#CBE6FF] rounded-xl p-1 shadow-md">
+            {/* DEVELOPMENT */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory("development")}
+              aria-pressed={activeCategory === "development"}
+              className={`px-6 py-2 rounded-lg mr-3 font-medium text-sm md:text-base transition ${activeCategory === "development"
+                ? "bg-[#045AD8] text-white shadow-inner"
+                : "bg-white text-[#045AD8]"
+                }`}
             >
-              <div className="h-10 w-10 sm:h-12 sm:w-12 bg-white rounded-xl mb-4 flex items-center justify-center">
-                <div className="w-4 h-4 sm:w-6 sm:h-6 bg-[#045AD8] rounded" />
+              DEVELOPMENT
+            </button>
+
+            {/* DIGITAL MARKETING */}
+            <button
+              type="button"
+              onClick={() => setActiveCategory("marketing")}
+              aria-pressed={activeCategory === "marketing"}
+              className={`px-6 py-2 rounded-lg font-medium text-sm md:text-base transition ${activeCategory === "marketing"
+                ? "bg-[#045AD8] text-white shadow-inner"
+                : "bg-white text-[#045AD8]"
+                }`}
+            >
+              DIGITAL MARKETING
+            </button>
+          </div>
+        </div>
+
+        {/* Cards grid */}
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {(
+            activeCategory === "development"
+              ? developmentServices
+              : marketingServices
+          ).map((s, idx) => (
+            <article
+              key={idx}
+              className="group relative overflow-hidden rounded-lg p-6 bg-gradient-to-b from-[#0b74d8] to-[#0473d6] text-white min-h-[380px] transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              {/* white icon box (top-left) */}
+              <div className="absolute left-6 top-6 bg-white rounded-md w-14 h-14 flex items-center justify-center shadow-sm">
+                <div className="text-[#045AD8]">{s.icon}</div>
               </div>
-              <h3 className="font-semibold text-xl sm:text-2xl mb-2">{service.title}</h3>
-              <p className="leading-relaxed opacity-90 text-sm sm:text-base">{service.description}</p>
-            </div>
+
+              {/* small top-right circular control */}
+              <div className="absolute right-4 top-4 w-9 h-9 rounded-full bg-[#0f1724]/80 flex items-center justify-center shadow-md">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden>
+                  <path d="M8 7l5 5-5 5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+
+              {/* content: increased gap between icon and title via mt-20 */}
+              <div className="mt-20">
+                <h3 className="text-xl md:text-2xl font-semibold mb-3">{s.title}</h3>
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  {s.desc}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
       </section>
+      {/* ------------------ END SERVICES SECTION ------------------ */}
+
+
+
 
       {/* LOGOS SECTION */}
       <section className={sectionMarginClass}>
@@ -376,7 +573,7 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-[#045AD8]/85 flex flex-col justify-center px-6 sm:px-10 md:px-20">
-          <h2 className={`${DMSerif.className} text-white text-xl sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4 max-w-xl text-center md:text-left`}>
+          <h2 className={`${montserrat.className} text-white text-xl sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4 max-w-xl text-center md:text-left`}>
             Want to learn more about our Web services?
           </h2>
           <div className="flex justify-center md:justify-start">
@@ -451,7 +648,10 @@ export default function Home() {
                 “I am impressed with their professionalism and dedication.
                 The project was delivered on time and exceeded expectations.”
               </p>
-              <div className="font-semibold text-base sm:text-lg">Md Zaheed Ali</div>
+              <div className="font-semibold text-base sm:text-lg flex items-center gap-4 mt-6">
+                Md Zaheed Ali
+                <FaUserCircle className="text-white text-6xl" />
+              </div>
             </div>
           ))}
         </div>
@@ -465,11 +665,15 @@ export default function Home() {
           {/* LEFT: Content Card */}
           <div>
             <div className="max-w-3xl">
-              <span className="inline-block bg-white/15 text-white text-xs font-semibold px-3 py-1 rounded-md mb-4">
+              <span
+                className="inline-block bg-white text-[#0b57bf] uppercase tracking-wide text-lg font-semibold px-4 py-2 rounded-sm mb-4 shadow-sm ring-1 ring-white/70"
+                aria-hidden="true"
+              >
                 DEVELOPMENT
               </span>
 
-              <h2 className={`${DMSerif.className} text-white text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight mb-6`}>
+
+              <h2 className={`${montserrat.className} text-white text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight mb-6`}>
                 Delivering Purpose-Driven, <br className="hidden sm:block" />
                 High-Performance Websites.
               </h2>
@@ -477,7 +681,7 @@ export default function Home() {
               <div className="mt-2 bg-[#0b57bf] rounded-xl p-6 sm:p-8 shadow-lg relative overflow-visible min-h-[260px] md:min-h-[240px]">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
                   <div className="flex-1 text-white pr-4 relative z-10">
-                    <h3 className={`${DMSerif.className} text-2xl font-bold mb-3`}>{active.title}</h3>
+                    <h3 className={`${montserrat.className} text-2xl font-bold mb-3`}>{active.title}</h3>
                     <p className="text-sm text-white/90 leading-relaxed mb-4">{active.intro}</p>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-white/95 mb-6">
                       {active.bullets.map((b, i) => (

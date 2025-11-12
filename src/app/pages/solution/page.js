@@ -69,10 +69,10 @@ export default function SolutionsPage() {
 
       {/* ===== SERVICES SECTION ===== */}
       <div className="px-5 py-6">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-black mb-3 tracking-wide text-left">
+        <h2 className="text-3xl md:text-6xl font-bold text-black mb-3 tracking-wide text-left">
           SERVICES
         </h2>
-        <p className="text-2xl md:text-3xl font-serif text-[#004aad] text-left leading-snug">
+        <p className="text-2xl md:text-3xl font-semibold text-[#004aad] text-left leading-snug">
           See how our solutions grow your business.
         </p>
 
@@ -85,7 +85,7 @@ export default function SolutionsPage() {
               {services.map((service, index) => (
                 <div key={index} className="col-12 md:col-6 lg:col-4 p-3">
                   <div
-                    className="relative rounded-lg shadow-lg overflow-hidden"
+                    className="relative rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl"
                     style={{
                       height: "300px",
                       backgroundImage: `url(${service.image})`,
@@ -93,6 +93,7 @@ export default function SolutionsPage() {
                       backgroundPosition: "center",
                     }}
                   >
+
                     {/* Overlay */}
                     <div
                       className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-between"
@@ -111,7 +112,7 @@ export default function SolutionsPage() {
                         label="READ MORE"
                         icon="pi pi-arrow-right"
                         iconPos="right"
-                        className="bg-blue-900 border-none text-white hover:bg-blue-800 w-max"
+                        className="bg-blue-900 border-sm text-white hover:bg-blue-800 w-max"
                       />
                     </div>
                   </div>
@@ -125,7 +126,7 @@ export default function SolutionsPage() {
               {services.map((service, index) => (
                 <div key={index} className="col-12 md:col-6 lg:col-4 p-3">
                   <div
-                    className="relative rounded-lg shadow-lg overflow-hidden"
+                    className="relative rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl"
                     style={{
                       height: "300px",
                       backgroundImage: `url(${service.image})`,
@@ -133,6 +134,7 @@ export default function SolutionsPage() {
                       backgroundPosition: "center",
                     }}
                   >
+
                     <div
                       className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-between"
                       style={{
@@ -141,14 +143,14 @@ export default function SolutionsPage() {
                       }}
                     >
                       <div>
-                       <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                        <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
                         <p className="text-base leading-relaxed">{service.description}</p>
                       </div>
                       <Button
                         label="READ MORE"
                         icon="pi pi-arrow-right"
                         iconPos="right"
-                        className="bg-blue-900 border-none text-white hover:bg-blue-800 w-max"
+                        className="bg-blue-900 border-sm text-white hover:bg-blue-800 w-max"
                       />
                     </div>
                   </div>

@@ -98,7 +98,7 @@ export default function NewsletterPage() {
       </div>
 
       {/* Footer Section (unchanged) */}
-      <footer className="bg-[#0E3C75] text-white py-10">
+      <footer className="bg-[#0056d2] text-white py-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
           {/* Logo Section */}
           <div className="flex flex-col items-center md:items-start">
