@@ -287,7 +287,7 @@ export default function Home() {
             {/* Centered Content */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold mb-6 sm:mb-8 leading-tight`}
               >
                 Elevating Brands Through Professional Web Development
               </h1>
@@ -319,7 +319,7 @@ export default function Home() {
 
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold mb-6 sm:mb-8 leading-tight`}
               >
                 Custom Web Apps That Scale With Your Business
               </h1>
@@ -351,7 +351,7 @@ export default function Home() {
 
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold mb-6 sm:mb-8 leading-tight`}
               >
                 Design-Led Development for Outstanding UX
               </h1>
@@ -861,13 +861,9 @@ export default function Home() {
         </div>
 
         <hr className="my-6 border-white/30" />
-        <div className="text-center text-sm opacity-80 space-x-3">
-          <span>Privacy Policy</span>|
-          <span>Terms & Conditions</span>|
-          <span>Disclaimer</span>|
-          <span>Refund Policy</span>|
-          <span>Cancellation Policy</span>
-        </div>
+        <p className="text-center text-sm opacity-80">
+          Designed & Developed by <span className="font-semibold">Luminate Web Solutions</span>
+        </p>
       </footer>
     </main>
   );

@@ -137,13 +137,9 @@ export default function Contact() {
         </div>
 
         <hr className="my-6 border-white/30" />
-        <div className="text-center text-sm opacity-80 space-x-3">
-          <span>Privacy Policy</span>|
-          <span>Terms & Conditions</span>|
-          <span>Disclaimer</span>|
-          <span>Refund Policy</span>|
-          <span>Cancellation Policy</span>
-        </div>
+        <p className="text-center text-sm opacity-80">
+          Designed & Developed by <span className="font-semibold">Luminate Web Solutions</span>
+        </p>
       </footer>
     </main>
   );

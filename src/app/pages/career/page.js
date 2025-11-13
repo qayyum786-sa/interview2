@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { Briefcase, MapPin, Tags } from "lucide-react";
+import Link from "next/link";
 
 export default function CareerPage() {
   const jobs = [
@@ -69,13 +71,13 @@ export default function CareerPage() {
 
         <div className="relative z-10 text-center">
           <h1
-            className="text-6xl font-extrabold mb-4 tracking-wide"
+            className="text-6xl font-bold mb-4 tracking-wide"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Career
           </h1>
           <p
-            className="text-xl font-medium text-blue-200"
+            className="text-xl font-semibold text-blue-200"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Your dream career starts here.
@@ -84,30 +86,92 @@ export default function CareerPage() {
       </section>
 
       {/* ===== JOB LIST SECTION ===== */}
-      <section className="flex-grow py-16 px-6">
-        <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
-          <div className="grid grid-cols-3 font-semibold text-gray-800 text-lg border-b pb-3 mb-5">
-            <span>Position</span>
-            <span>Location</span>
-            <span className="flex items-center gap-2">Skills</span>
+      <section className="flex-grow py-10 px-5">
+      {/* Outer blue frame */}
+      <div
+        className="max-w-4xl mx-auto rounded-2xl p-3"
+        style={{
+          boxShadow:
+            "0 0 0 3px rgba(6,37,69,0.8), inset 0 0 0 3px rgba(6,37,69,0.6)",
+        }}
+      >
+        {/* Inner white card */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
+          {/* Header row */}
+          <div className="grid grid-cols-3 font-semibold text-gray-800 text-lg border-b pb-4 mb-6">
+            <div className="flex items-center gap-2">
+              <Briefcase className="w-5 h-5 text-blue-700" />
+              <span>Position</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-blue-700" />
+              <span>Location</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Tags className="w-5 h-5 text-blue-700" />
+              <span>Skills</span>
+            </div>
           </div>
 
-          {jobs.map((job, i) => (
-            <div
-              key={i}
-              className="grid grid-cols-3 items-start py-4 border-b last:border-none hover:bg-blue-50 transition-all duration-300 rounded-lg px-2"
-            >
-              <div>
-                <p className="font-semibold text-gray-900 text-lg leading-tight">
-                  {job.position}
-                </p>
+          {/* Jobs list */}
+          <div className="space-y-5">
+            {jobs.map((job, i) => (
+              <Link
+                key={i}
+                href="/pages/internship"
+                className="block bg-white rounded-xl shadow-sm border border-gray-100 p-6 grid grid-cols-3 gap-4 items-center transition-transform duration-200 transform hover:-translate-y-1 hover:shadow-md hover:bg-blue-50"
+              >
+                {/* Position */}
+                <div>
+                  <p className="font-semibold text-gray-900 text-xl leading-tight">
+                    {job.position}
+                  </p>
+                </div>
+
+                {/* Location */}
+                <div className="text-gray-700 text-base text-center">
+                  {job.location.split(",").map((line, idx) => (
+                    <div key={idx}>{line.trim()}</div>
+                  ))}
+                </div>
+
+                {/* Skills */}
+                <div className="text-blue-700 text-base text-right">
+                  {Array.isArray(job.skills)
+                    ? job.skills.join(", ")
+                    : job.skills}
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Pagination */}
+          <div className="mt-8 flex justify-center">
+            <nav className="inline-flex items-center gap-3">
+              <button className="p-2 rounded-md bg-gray-100 disabled:opacity-50">
+                ‹
+              </button>
+              <div className="inline-flex items-center gap-2">
+                <button className="w-8 h-8 rounded-md border border-gray-300 bg-blue-100 text-blue-700 font-semibold">
+                  1
+                </button>
+                <button className="w-8 h-8 rounded-md border border-gray-200">
+                  2
+                </button>
+                <span className="px-2">…</span>
+                <button className="w-8 h-8 rounded-md border border-gray-200">
+                  9
+                </button>
+                <button className="w-8 h-8 rounded-md border border-gray-200">
+                  10
+                </button>
               </div>
-              <div className="text-gray-700 text-base">{job.location}</div>
-              <div className="text-blue-700 text-base">{job.skills}</div>
-            </div>
-          ))}
+              <button className="p-2 rounded-md bg-gray-100">›</button>
+            </nav>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* ===== FOOTER ===== */}
       <footer className="bg-[#0056d2] text-white px-10 py-8 mt-10">

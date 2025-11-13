@@ -97,47 +97,63 @@ export default function NewsletterPage() {
         </div>
       </div>
 
-      {/* Footer Section (unchanged) */}
-      <footer className="bg-[#0056d2] text-white py-10">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-          {/* Logo Section */}
-          <div className="flex flex-col items-center md:items-start">
+      {/* ===== FOOTER ===== */}
+      <footer className="bg-[#0056d2] text-white px-10 py-8 mt-10">
+        <div className="w-full flex flex-col md:flex-row md:justify-between md:items-start gap-10 md:gap-20">
+          {/* Left Section */}
+          <div className="flex flex-col items-start justify-start w-full md:w-1/3">
             <Image
               src="/luminatewhitelogo.png"
               alt="Luminate Web Solutions"
               width={180}
-              height={80}
+              height={70}
+              className="mb-3"
             />
-            <p className="text-xs mt-4">© 2024-25 All rights reserved.</p>
+            <p className="text-sm leading-6">
+              © 2024-25 <span className="font-semibold">Luminate Web Solutions</span>.
+              <br />
+              All rights reserved.
+            </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-lg mb-3">Quick Links</h4>
-            <ul className="space-y-1 text-sm">
-              <li>🏠 Home</li>
-              <li>👤 About Us</li>
-              <li>📞 Contact Us</li>
-              <li>💡 Solutions</li>
-              <li>🎯 Career</li>
+          <div className="flex flex-col w-full md:w-1/3 text-left">
+            <h4 className="font-bold text-lg mb-3">Quick Links</h4>
+            <ul className="list-none space-y-2 text-base">
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">Home</li>
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">About Us</li>
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">Contact Us</li>
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">Solutions</li>
+              <li className="hover:text-blue-300 transition-all duration-200 cursor-pointer">Career</li>
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="font-semibold text-lg mb-3">Contact Info</h4>
-            <p className="text-sm">Dubai, UAE</p>
-            <p className="text-sm">Hyderabad, Telangana, India</p>
-            <p className="mt-2 text-sm">
-              📞 +971 56 574 4992 <br /> 📞 +91 720-736-7455
+          <div className="flex flex-col w-full md:w-1/3 text-left">
+            <h4 className="font-bold text-lg mb-3">Contact Info</h4>
+            <p className="leading-7">
+              Dubai, UAE
+              <br />
+              Hyderabad, Telangana, India
             </p>
-            <p className="mt-2 text-sm">✉️ info@luminatewebsol.com</p>
+            <div className="mt-3 space-y-2 text-base">
+              <p className="flex items-center gap-2">
+                <span>📞</span> +971 56 674 9492
+              </p>
+              <p className="flex items-center gap-2">
+                <span>📞</span> +91 720 734 7455
+              </p>
+              <p className="flex items-center gap-2">
+                <span>✉️</span> info@luminatewebsdl.com
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="text-center text-xs mt-8 opacity-80">
-          Privacy Policy | Terms & Conditions | Disclaimer | Refund Policy | Cancellation Policy
-        </div>
+        <hr className="my-6 border-white/30" />
+        <p className="text-center text-sm opacity-80">
+          Designed & Developed by <span className="font-semibold">Luminate Web Solutions</span>
+        </p>
       </footer>
     </div>
   );
