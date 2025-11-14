@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { FaBullseye, FaRocket, FaGem } from "react-icons/fa";
+import Link from "next/link";
+
 
 export default function AboutUs() {
   return (
@@ -168,9 +170,11 @@ export default function AboutUs() {
       {/* Explore Section */}
       <section className="relative bg-blue-700 py-16 text-white text-center">
         <h2 className="text-3xl font-bold mb-4">Explore Our Solutions</h2>
+        <Link href="/pages/solution">
         <button className="bg-white text-blue-700 font-semibold px-6 py-2 rounded-full hover:bg-gray-100 transition-all">
           LEARN MORE →
         </button>
+        </Link>
       </section>
 
       {/* Testimonials Section */}
