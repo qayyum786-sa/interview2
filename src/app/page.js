@@ -304,7 +304,7 @@ const NextArrow = ({ style, onClick }) => {
             {/* Centered Content */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-2xl sm:text-4xl md:text-5xl lg:text-4xl font-semibold mb-6 sm:mb-8 leading-tight`}
               >
                 Elevating Brands Through Professional Web Development
               </h1>
@@ -336,7 +336,7 @@ const NextArrow = ({ style, onClick }) => {
 
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-2xl sm:text-4xl md:text-5xl lg:text-4xl font-semibold mb-6 sm:mb-8 leading-tight`}
               >
                 Custom Web Apps That Scale With Your Business
               </h1>
@@ -368,7 +368,7 @@ const NextArrow = ({ style, onClick }) => {
 
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
               <h1
-                className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold mb-6 sm:mb-8 leading-tight`}
+                className={`${montserrat.className} text-2xl sm:text-4xl md:text-5xl lg:text-4xl font-semibold mb-6 sm:mb-8 leading-tight`}
               >
                 Design-Led Development for Outstanding UX
               </h1>
