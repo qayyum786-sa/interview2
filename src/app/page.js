@@ -109,63 +109,80 @@ export default function Home() {
 
   // Beige / thick larger arrows like screenshot
 
-  const PrevArrow = ({ style, onClick }) => {
-    return (
-      <button
-        aria-label="Previous slide"
-        onClick={onClick}
-        type="button"
-        style={{ ...style }}
-        className="absolute left-6 top-1/2 z-30 -translate-y-1/2 flex items-center justify-center focus:outline-none"
+const PrevArrow = ({ style, onClick }) => {
+  return (
+    <button
+      aria-label="Previous slide"
+      onClick={onClick}
+      type="button"
+      style={{ ...style }}
+      className="
+        absolute
+        left-2 sm:left-4 md:left-6
+        top-1/2
+        z-30
+        -translate-y-1/2
+        flex items-center justify-center
+        p-1 sm:p-2 md:p-3
+        focus:outline-none
+      "
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12"
+        fill="none"
+        aria-hidden="true"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="68"
-          height="68"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M15 4L7 12l8 8"
-            stroke="#F0E6C8"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-    );
-  };
+        <path
+          d="M15 4L7 12l8 8"
+          stroke="#F0E6C8"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  );
+};
 
-  const NextArrow = ({ style, onClick }) => {
-    return (
-      <button
-        aria-label="Next slide"
-        onClick={onClick}
-        type="button"
-        style={{ ...style }}
-        className="absolute right-6 top-1/2 z-30 -translate-y-1/2 flex items-center justify-center focus:outline-none"
+const NextArrow = ({ style, onClick }) => {
+  return (
+    <button
+      aria-label="Next slide"
+      onClick={onClick}
+      type="button"
+      style={{ ...style }}
+      className="
+        absolute
+        right-2 sm:right-4 md:right-6
+        top-1/2
+        z-30
+        -translate-y-1/2
+        flex items-center justify-center
+        p-1 sm:p-2 md:p-3
+        focus:outline-none
+      "
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12"
+        fill="none"
+        aria-hidden="true"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="68"
-          height="68"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M9 4l8 8-8 8"
-            stroke="#F0E6C8"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-    );
-  };
+        <path
+          d="M9 4l8 8-8 8"
+          stroke="#F0E6C8"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  );
+};
+
 
   // Put this at top of your component (inside the same file but before return)
   const [activeCategory, setActiveCategory] = useState("development");
