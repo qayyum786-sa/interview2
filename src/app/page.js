@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-montserrat" });
 
 export default function Home() {
@@ -605,49 +606,56 @@ const NextArrow = ({ style, onClick }) => {
 
       {/* PROJECTS */}
       <section className={sectionMarginClass}>
-        <h1 className={sectionHeadingClass}>OUR PROJECTS</h1>
-        <p className={sectionSubheadingClass}>
-          See how we’ve delivered best results to our clients.
-        </p>
+  <h1 className={sectionHeadingClass}>OUR PROJECTS</h1>
+  <p className={sectionSubheadingClass}>
+    See how we’ve delivered best results to our clients.
+  </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-6">
-          {[
-            {
-              id: 1,
-              title: "Skill Development HUB Qutubshahi 1",
-              desc: "A case study showcasing our web development and design capabilities.",
-              image: "/eiddo.png",
-            },
-            {
-              id: 2,
-              title: "Skill Development HUB Qutubshahi 2",
-              desc: "A case study showcasing our web development and design capabilities.",
-              image: "/coverImage.png",
-            },
-            {
-              id: 3,
-              title: "Skill Development HUB Qutubshahi 3",
-              desc: "A case study showcasing our web development and design capabilities.",
-              image: "/coverImage2.png",
-            },
-          ].map((project) => (
-            <div
-              key={project.id}
-              className="border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all"
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-44 sm:h-48 w-full object-cover"
-              />
-              <div className="p-5 sm:p-6">
-                <h3 className="font-semibold text-lg sm:text-xl mb-2">{project.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{project.desc}</p>
-              </div>
-            </div>
-          ))}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-6">
+    {[
+      {
+        id: 1,
+        title: "EiddoPower – Renewable Energy Website",
+        desc: "A complete renewable energy website built using Next.js.",
+        image: "/eiddo.png",
+        link: "/pages/projects/eiddopower", 
+      },
+      {
+        id: 2,
+        title: "Skill Development HUB Qutubshahi",
+        desc: "Job-oriented educational platform case study.",
+        image: "/coverImage.png",
+        link: "/pages/projects/eiddoglobal",
+      },
+      {
+        id: 3,
+        title: "Skill Development HUB Mehdipatnam",
+        desc: "Training & placement focused educational platform.",
+        image: "/coverImage2.png",
+        link: "/pages/projects/bimqubator",
+      },
+    ].map((project) => (
+      <Link key={project.id} href={project.link}>
+        <div className="border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="h-44 sm:h-48 w-full object-cover"
+          />
+          <div className="p-5 sm:p-6">
+            <h3 className="font-semibold text-lg sm:text-xl mb-2">
+              {project.title}
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+              {project.desc}
+            </p>
+          </div>
         </div>
-      </section>
+      </Link>
+    ))}
+  </div>
+</section>
+
 
       {/* TESTIMONIALS */}
       <section className={sectionMarginClass}>

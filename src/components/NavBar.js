@@ -40,7 +40,7 @@ export default function NavBar() {
               href={item.href}
               className="relative group tracking-wide transition-all duration-300"
             >
-              <span className="transition-colors duration-300 group-hover:text-blue-700">
+              <span className="transition-colors duration-300 group-hover:text-blue-700 whitespace-nowrap">
                 {item.name}
               </span>
               <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-700 transition-all duration-300 group-hover:w-full"></span>
